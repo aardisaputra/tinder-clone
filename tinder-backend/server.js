@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import Cards from './dbCards.js';
+import Cors from 'cors';
 
 //app config
 const app = express();
@@ -8,11 +9,12 @@ const port = process.env.PORT || 8001;
 const url_connection = `mongodb+srv://admin:OgV7OlHKOnrBeshk@cluster0.exw64.mongodb.net/tinder-clone?retryWrites=true&w=majority`
 
 //middlewares
+app.use(express.json());
+app.use(Cors());
 
 //db config
-mongoose.connect(connection_url, {
+mongoose.connect(url_connection, {
     useNewUrlParser: true,
-    useCreateIndex:true,
     useUnifiedTopology:true,
 });
 
