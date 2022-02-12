@@ -1,5 +1,5 @@
 import { SwipeDown } from '@mui/icons-material';
-import React, { useEffect, useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import TinderCard from 'react-tinder-card';
 import "./TinderCards.css";
 import axios from './axios';
@@ -9,7 +9,7 @@ function TinderCards() {
 
     useEffect(() => {
         async function fetchData() {
-            const req = await axios.get("/tinder/cards");
+            const req = await axios.get("/tinder/card");
             setPeople(req.data);
         }
 
